@@ -16,3 +16,12 @@ def test_is_prime(number, result):
 
 def test_sum_of_primes_empty_list():
     assert sum_of_primes([]) == 0
+
+
+@pytest.mark.parametrize('numbers, result', [
+    ([11, 15, 17, 18, 20, 100], 28),
+    ([2, 3], 5),
+    ([4, 15, 28], 0),
+])
+def test_sum_of_primes_mixed_list(numbers, result):
+    assert sum_of_primes(numbers) == result
