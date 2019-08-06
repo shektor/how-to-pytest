@@ -9,7 +9,7 @@ Using the `pytest` testing framework and test-driven development to create prime
 > cd how-to-pytest
 
 # It is generally recommended to install packages in a virtual environment but is optional
-> python -m venv env
+> python3 -m venv env
 > . env/bin/activate
 
 > pip install -r requirements.txt
