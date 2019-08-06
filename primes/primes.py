@@ -14,3 +14,7 @@ def is_prime(num):
             return False
 
     return True
+
+
+def sum_of_primes(numbers):
+    return sum(numbers)
