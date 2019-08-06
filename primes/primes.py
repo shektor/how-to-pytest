@@ -5,7 +5,7 @@ def is_prime(num):
         return False
 
     num_sqrt = math.sqrt(num)
-    sqrt_round_up = math.ceil(num_sqrt)
+    sqrt_round_up = math.floor(num_sqrt + 1)
 
     for test_value in range(2, sqrt_round_up):
         quotient = num / test_value
