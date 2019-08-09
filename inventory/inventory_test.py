@@ -1,6 +1,7 @@
 import pytest
 from inventory import Inventory
 from inventory import InvalidQuantityException
+from inventory import NoSpaceException
 
 
 def test_default_inventory_initialisation():
@@ -32,13 +33,15 @@ def test_add_new_stock_success(no_stock_inventory):
 
 @pytest.mark.parametrize('name, price, quantity, exception', [
     ('Test Jacket', 10.00, 0, InvalidQuantityException(
-        'Cannot add a quantity of 0. All new stocks must have at least 1 item'))
+        'Cannot add a quantity of 0. All new stocks must have at least 1 item')),
+    ('Test Jacket', 10.00, 25, NoSpaceException(
+        'Cannot add these 25 items. Only 10 more items can be stored')),
 ])
 def test_add_new_stock_bad_input(name, price, quantity, exception):
     inventory = Inventory(10)
     try:
         inventory.add_new_stock(name, price, quantity)
-    except InvalidQuantityException as raisedIssue:
+    except (InvalidQuantityException, NoSpaceException) as raisedIssue:
         assert isinstance(raisedIssue, type(exception))
         assert raisedIssue.args == exception.args
     else:
