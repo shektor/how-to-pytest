@@ -5,3 +5,6 @@ class Wallet:
 
     def add(self, amount):
         self.balance += amount
+
+    def subtract(self, amount):
+        self.balance -= amount
