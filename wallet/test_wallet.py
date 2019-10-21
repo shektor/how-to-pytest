@@ -1,4 +1,6 @@
-from wallet import Wallet
+import pytest
+
+from wallet import Wallet, InsufficientAmount
 
 
 def test_default_initial_amount():
@@ -21,3 +23,9 @@ def test_subtract_from_balance():
     wallet = Wallet(10)
     wallet.subtract(5)
     assert wallet.balance == 5
+
+
+def test_subtract_raises_exception_on_insufficient_balance():
+    wallet = Wallet()
+    with pytest.raises(InsufficientAmount):
+        wallet.subtract(100)

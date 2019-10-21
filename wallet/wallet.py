@@ -7,4 +7,10 @@ class Wallet:
         self.balance += amount
 
     def subtract(self, amount):
+        if (self.balance - amount) < 0:
+            raise InsufficientAmount('Insufficient balance'.format(amount))
         self.balance -= amount
+
+
+class InsufficientAmount(Exception):
+    pass
