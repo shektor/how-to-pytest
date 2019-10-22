@@ -36,3 +36,14 @@ def test_subtract_from_balance(wallet):
 def test_subtract_raises_exception_on_insufficient_balance(empty_wallet):
     with pytest.raises(InsufficientAmount):
         empty_wallet.subtract(100)
+
+
+@pytest.mark.parametrize("earned, spent, expected", [
+    (30, 10, 20),
+    (20, 2, 18)
+])
+def test_transactions(earned, spent, expected):
+    my_wallet = Wallet()
+    my_wallet.add(earned)
+    my_wallet.subtract(spent)
+    assert my_wallet.balance == expected
