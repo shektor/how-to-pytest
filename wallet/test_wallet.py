@@ -39,11 +39,10 @@ def test_subtract_raises_exception_on_insufficient_balance(empty_wallet):
 
 
 @pytest.mark.parametrize("earned, spent, expected", [
-    (30, 10, 20),
-    (20, 2, 18)
+    (30, 10, 120),
+    (20, 2, 118)
 ])
-def test_transactions(earned, spent, expected):
-    my_wallet = Wallet()
-    my_wallet.add(earned)
-    my_wallet.subtract(spent)
-    assert my_wallet.balance == expected
+def test_transactions(wallet, earned, spent, expected):
+    wallet.add(earned)
+    wallet.subtract(spent)
+    assert wallet.balance == expected
