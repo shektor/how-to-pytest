@@ -1,19 +1,25 @@
+import pytest
+
 from bowling_game import Game
 
 
-def test_gutter_game():
-    game = Game()
+@pytest.fixture
+def game():
+    return Game()
 
-    for _ in range(20):
-        game.roll(0)
+
+def roll_many(game, pins, number_of_times):
+    for _ in range(number_of_times):
+        game.roll(pins)
+
+
+def test_gutter_game(game):
+    roll_many(game, 0, 20)
 
     assert game.final_score() == 0
 
 
-def test_all_ones():
-    game = Game()
-
-    for _ in range(20):
-        game.roll(1)
+def test_all_ones(game):
+    roll_many(game, 1, 20)
 
     assert game.final_score() == 20
