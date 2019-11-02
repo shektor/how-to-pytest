@@ -18,6 +18,10 @@ def roll_spare(game):
     game.roll(5)
 
 
+def roll_strike(game):
+    game.roll(10)
+
+
 def test_gutter_game(game):
     roll_many(game, 0, 20)
 
@@ -39,7 +43,7 @@ def test_one_spare(game):
 
 
 def test_one_strike(game):
-    game.roll(10)
+    roll_strike(game)
     game.roll(3)
     game.roll(4)
     roll_many(game, 0, 16)
