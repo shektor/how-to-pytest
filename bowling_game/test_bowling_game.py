@@ -36,3 +36,12 @@ def test_one_spare(game):
     roll_many(game, 0, 17)
 
     assert game.final_score() == 16
+
+
+def test_one_strike(game):
+    game.roll(10)
+    game.roll(3)
+    game.roll(4)
+    roll_many(game, 0, 16)
+
+    assert game.final_score() == 24
