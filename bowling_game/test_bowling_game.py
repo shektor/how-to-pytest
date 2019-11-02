@@ -13,6 +13,11 @@ def roll_many(game, pins, number_of_times):
         game.roll(pins)
 
 
+def roll_spare(game):
+    game.roll(5)
+    game.roll(5)
+
+
 def test_gutter_game(game):
     roll_many(game, 0, 20)
 
@@ -26,8 +31,7 @@ def test_all_ones(game):
 
 
 def test_one_spare(game):
-    game.roll(5)
-    game.roll(5)
+    roll_spare(game)
     game.roll(3)
     roll_many(game, 0, 17)
 
