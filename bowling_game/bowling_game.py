@@ -9,7 +9,12 @@ class Game:
 
     def final_score(self):
         score = 0
-        for roll in self.rolls:
-            score += roll
+        roll = 0
+        for frame in range(10):
+            if self.rolls[roll] + self.rolls[roll + 1] == 10:
+                score += 10 + self.rolls[roll + 2]
+            else:
+                score += self.rolls[roll] + self.rolls[roll + 1]
+            roll += 2
 
         return score
