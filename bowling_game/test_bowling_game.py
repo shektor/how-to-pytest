@@ -49,3 +49,9 @@ def test_one_strike(game):
     roll_many(game, 0, 16)
 
     assert game.final_score() == 24
+
+
+def test_perfect_game(game):
+    roll_many(game, 10, 12)
+
+    assert game.final_score() == 300
