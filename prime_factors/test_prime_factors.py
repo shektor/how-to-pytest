@@ -18,3 +18,7 @@ def test_two(prime_factors):
 
 def test_three(prime_factors):
     assert prime_factors.generate(3) == [3]
+
+
+def test_four(prime_factors):
+    assert prime_factors.generate(4) == [2, 2]
