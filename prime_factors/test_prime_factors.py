@@ -14,7 +14,8 @@ def prime_factors():
     (3, [3]),
     (4, [2, 2]),
     (6, [2, 3]),
-    (8, [2, 2, 2])
+    (8, [2, 2, 2]),
+    (9, [3, 3])
 ])
 def test_generate(prime_factors, number, prime_factors_list):
     assert prime_factors.generate(number) == prime_factors_list
